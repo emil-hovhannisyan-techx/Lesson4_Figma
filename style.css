@@ -208,7 +208,8 @@ button {
 }
 
 .sign-up:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
   filter: brightness(1.2);
 }
 
@@ -379,7 +380,7 @@ button {
   }
 }
 
-.input-bar button {
+/* .input-bar button {
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -409,6 +410,83 @@ button {
 .input-bar button img:hover {
   transform: scale(1.1);
   filter: brightness(1.2);
+} */
+
+/* Keyframe animation for pulsing effect */
+@keyframes hvr-icon-pulse {
+  25% {
+    transform: scale(1.1);
+  }
+  75% {
+    transform: scale(0.7);
+  }
+}
+
+/* Button styles with radial effect */
+.input-bar button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  aspect-ratio: 1/1;
+  height: auto;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-property: color;
+  transition-duration: 0.3s;
+}
+
+.input-bar button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  border-radius: 100%;
+  transform: scale(0);
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.input-bar button:hover::before,
+.input-bar button:focus::before,
+.input-bar button:active::before {
+  transform: scale(1.1);
+}
+
+/* Image styles with pulse effect */
+.input-bar button img {
+  width: 3.9vw;
+  transform: translateZ(0); /* Ensures smooth rendering */
+  transition-timing-function: ease-out; /* Smooth transition for non-hover states */
+}
+
+.input-bar button:hover img,
+.input-bar button:focus img,
+.input-bar button:active img {
+  animation-name: hvr-icon-pulse;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Media queries */
+@media (max-width: 767px) {
+  .input-bar button img {
+    width: 29.9px;
+  }
+}
+
+@media (min-width: 1436px) {
+  .input-bar button img {
+    width: 56px;
+  }
 }
 
 /* FEATURED LIST */
@@ -450,6 +528,51 @@ button {
 .apartment-item:hover {
   transform: scale(1.03);
 }
+
+/*Keyframe for wobble effect. Unnecessary due to complexity for user's viewpoint and browser, yet funny enough to implement for anyone curious
+remove the comments, comments accordingly the .apartment-item and it's hover and let's see what happens!*/
+
+/* @keyframes hvr-wobble-top {    
+  16.65% {
+    transform: skew(-12deg);
+  }
+  33.3% {
+    transform: skew(10deg);
+  }
+  49.95% {
+    transform: skew(-6deg);
+  }
+  66.6% {
+    transform: skew(4deg);
+  }
+  83.25% {
+    transform: skew(-2deg);
+  }
+  100% {
+    transform: skew(0);
+  }
+}
+
+.apartment-item {
+  width: 26.3vw;
+  min-width: 201.6px;
+  max-width: 379px;
+  aspect-ratio: 379/332;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  transition-duration: 270ms;
+  transform-origin: 0 100%;
+}
+
+.apartment-item:hover,
+.apartment-item:focus,
+.apartment-item:active {
+  animation-name: hvr-wobble-top;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+} */
 
 .apartment-visual {
   display: flex;
@@ -664,7 +787,7 @@ button {
   height: 2vw;
   min-height: 13px;
   max-height: 25px;
-  background-image: url(assets/body/featured-list/third-section/icn-like-white.svg);
+  background-image: url("assets/body/featured-list/third-section/Group\ 3.svg");
   background-size: cover;
   transition-duration: 150ms;
 }
@@ -676,19 +799,19 @@ button {
   height: 2vw;
   min-height: 13px;
   max-height: 25px;
-  background-image: url(assets/body/featured-list/third-section/icn-share-white.svg);
+  background-image: url("assets/body/featured-list/third-section/icons8-share.svg");
   background-size: cover;
   transition-duration: 150ms;
 }
 
 .inf-like:hover {
-  background-image: url(assets/body/featured-list/third-section/icn-like-green.svg);
+  background-image: url("assets/body/featured-list/third-section/Group\ 3\ green.svg");
   transform: scale(1.1);
   filter: brightness(1.2);
 }
 
 .inf-share:hover {
-  background-image: url(assets/body/featured-list/third-section/icn-share-green.svg);
+  background-image: url("assets/body/featured-list/third-section/icons8-share\ green.svg");
   transform: scale(1.1);
   filter: brightness(1.2);
 }
@@ -1006,14 +1129,14 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(33.6px, 4.4vw, 63.0px);
+  width: clamp(33.6px, 4.4vw, 63px);
   aspect-ratio: 63/57;
   height: auto;
-  margin: 0 clamp(8.5px, 1.1vw, 16.0px);
+  margin: 0 clamp(8.5px, 1.1vw, 16px);
   background-color: var(--base-green);
   border-radius: 3px;
   color: white;
-  font-size: clamp(11.7px, 1.5vw, 22.0px);
+  font-size: clamp(11.7px, 1.5vw, 22px);
   font-weight: 400;
   text-align: center;
 }
@@ -1130,9 +1253,59 @@ button {
 
 .event-buttons img:hover {
   transform: scale(1.3);
-  filter: brightness(1.2);
 }
 
+/* .event-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 3.9vw;
+  min-width: 29.9px;
+  max-width: 56px;
+}
+
+
+.event-buttons .icon {
+  width: 1.7vw;
+  height: 1.7vw; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.3s ease, background-image 0.3s ease; 
+}
+
+
+.event-buttons .plus-icon {
+  background-image: url("assets/body/events/plus-sign.svg");
+}
+
+.event-buttons .plus-icon:hover {
+  background-image: url("assets/body/events/heart-icon.svg");
+  transform: scale(1.3);
+}
+
+
+.event-buttons .share-icon {
+  background-image: url("assets/body/events/icons8-share.svg");
+}
+
+.event-buttons .share-icon:hover {
+  background-image: url("assets/body/events/icons8-share-hover.svg");
+  transform: scale(1.3);
+}
+
+@media (max-width: 753px) {
+  .event-buttons .icon {
+    width: 12.8px;
+    height: 12.8px;
+  }
+}
+
+@media (min-width: 1412px) {
+  .event-buttons .icon {
+    width: 24px;
+    height: 24px;
+  }
+} */
 .event-people-data {
   display: flex;
   justify-content: space-between;
@@ -1348,6 +1521,7 @@ button {
 }
 
 .rev-button p {
+  align-self: center;
   font-size: 1.1vw;
   color: white;
   font-weight: 600;
@@ -1428,9 +1602,8 @@ button {
   }
 }
 
-.icn-item img:hover {
+.icn-item:hover {
   transform: scale(1.1);
-  filter: brightness(1.3);
 }
 
 .just-plus h2 {
@@ -1483,6 +1656,7 @@ button {
   }
 }
 
+/* Base styles for city */
 .city {
   display: flex;
   align-items: end;
@@ -1490,10 +1664,43 @@ button {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 15px;
-  transition-duration: 250ms;
+  transition: all 0.5s ease;
   position: relative;
+  overflow: hidden;
 }
 
+/* Holographic effect overlay */
+.city::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    transparent 30%,
+    rgba(0, 255, 255, 0.164)
+  );
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+  z-index: 1;
+}
+
+/* Hover effects */
+.city:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.city:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+
+/* Specific city background images */
 .c-id-1 {
   grid-area: box-1;
   background-image: linear-gradient(hsla(255 0% 10% / 0.5)),
@@ -1536,12 +1743,7 @@ button {
     url("assets/body/listings/georgia.png");
 }
 
-.city:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.4);
-  filter: brightness(1.5);
-}
-
+/* City info styles */
 .city-info {
   display: flex;
   flex-direction: column;
@@ -1550,24 +1752,11 @@ button {
   height: 90%;
   margin: 7% 7%;
   transition-duration: 200ms;
+  position: relative;
+  z-index: 2;
 }
 
-.city-info:hover {
-  width: 70%;
-  height: 80%;
-  transform: scale(1.4) translateX(0.7vw);
-  justify-content: center;
-  align-items: center;
-}
-
-.inf-id-1:hover {
-  width: 70%;
-  height: 80%;
-  transform: scale(1.4) translateX(1vw);
-  justify-content: center;
-  align-items: center;
-}
-
+/* City name styles */
 .city-name {
   font-weight: 700;
   font-size: 1.7vw;
@@ -1575,6 +1764,28 @@ button {
   margin: 0.3vw 0;
 }
 
+/* City list styles */
+.city-list {
+  display: flex;
+  font-size: 1.1vw;
+  font-weight: 700;
+  color: white;
+}
+
+.city-num {
+  color: var(--base-green);
+  margin-right: 0.3vw;
+}
+
+.big-name {
+  font-size: 2.2vw;
+}
+
+.big-ct-list {
+  font-size: 1.3vw;
+}
+
+/* Media queries */
 @media (max-width: 753px) {
   .city-name {
     font-size: 12.8px;
@@ -1589,13 +1800,6 @@ button {
   }
 }
 
-.city-list {
-  display: flex;
-  font-size: 1.1vw;
-  font-weight: 700;
-  color: white;
-}
-
 @media (max-width: 773px) {
   .city-list {
     font-size: 8.5px;
@@ -1608,15 +1812,6 @@ button {
   }
 }
 
-.city-num {
-  color: var(--base-green);
-  margin-right: 0.3vw;
-}
-
-.big-name {
-  font-size: 2.2vw;
-}
-
 @media (max-width: 777px) {
   .big-name {
     font-size: 17.1px;
@@ -1627,10 +1822,6 @@ button {
   .big-name {
     font-size: 32px;
   }
-}
-
-.big-ct-list {
-  font-size: 1.3vw;
 }
 
 @media (max-width: 738px) {
@@ -1783,24 +1974,26 @@ button {
   background-color: #f5f5f5;
 }
 
-.social-links {
+ .social-links {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 4px;
   height: 6.7vw;
   min-height: 51.7px;
   max-height: 97px;
   width: 100vw;
-}
+} 
+
 
 .social-links img {
   width: 2.1vw;
   margin: 0 0.6vw;
   cursor: pointer;
   transition-duration: 250ms;
-}
+} 
 
-@media (max-width: 762px) {
+ @media (max-width: 762px) {
   .social-links img {
     width: 16px;
     margin: 0 4.3px;
@@ -1817,7 +2010,214 @@ button {
 .social-links img:hover {
   transform: scale(1.1);
   filter: brightness(1.4);
+} 
+
+/* Keyframe animation for 3D rotation
+@keyframes rotate3d {
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+  25% {
+    transform: rotateX(90deg) rotateY(90deg);
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(180deg);
+  }
+  75% {
+    transform: rotateX(270deg) rotateY(270deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
 }
+
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6.7vw;
+  min-height: 51.7px;
+  max-height: 97px;
+  width: 100vw;
+  perspective: 1000px; 
+}
+
+.social-links .social-icon {
+  width: 2.1vw;
+  min-width: 16px;
+  max-width: 30px;
+  height: 2.1vw;
+  min-height: 16px;
+  max-height: 30px;
+  position: relative;
+  background-image: url("/assets/footer/facebook.svg"); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  margin: 0 0.6vw;
+  transition: transform 0.3s ease; 
+}
+
+.social-links .social-icon {
+  --icon-url: url(attr(data-icon));
+}
+
+.social-links .social-icon:hover {
+  transform-style: preserve-3d;
+  animation: rotate3d 8s infinite linear;
+}
+
+.social-links .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: visible;
+  border-radius: 12px;
+  background-image: url("/assets/footer/facebook.svg"); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid #646cff;
+  transition: all 0.3s ease;
+  opacity: 0; 
+  overflow: hidden;
+}
+
+.social-links .front {
+  opacity: 1;
+  transform: translateZ(0); 
+}
+
+.social-links .social-icon:hover .face {
+  opacity: 1;
+}
+
+.social-links .social-icon:hover .front {
+  transform: translateZ(1.05vw);
+}
+
+.social-links .social-icon:hover .back {
+  transform: translateZ(-1.05vw) rotateY(180deg);
+  border-color: #00bcd4;
+}
+
+.social-links .social-icon:hover .right {
+  transform: translateX(1.05vw) rotateY(90deg);
+  border-color: #4caf50;
+}
+
+.social-links .social-icon:hover .left {
+  transform: translateX(-1.05vw) rotateY(-90deg);
+  border-color: #ff4081;
+}
+
+.social-links .social-icon:hover .top {
+  transform: translateY(-1.05vw) rotateX(90deg);
+  border-color: #ffc107;
+}
+
+.social-links .social-icon:hover .bottom {
+  transform: translateY(1.05vw) rotateX(-90deg);
+  border-color: #9c27b0;
+}
+
+.social-links .face::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  top: -100%;
+  left: -100%;
+  transition: all 0.5s ease;
+  transform: translateZ(20px);
+}
+
+.social-links .face::after {
+  content: 耀 "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-links .face:hover::before {
+  top: 100%;
+  left: 100%;
+}
+
+.social-links .face:hover::after {
+  opacity: 1;
+}
+
+/* Media queries
+@media (max-width: 762px) {
+  .social-links .social-icon {
+    width: 16px;
+    height: 16px;
+    margin: 0 4.3px;
+  }
+  .social-links .social-icon:hover .front {
+    transform: translateZ(8px);
+  }
+  .social-links .social-icon:hover .back {
+    transform: translateZ(-8px) rotateY(180deg);
+  }
+  .social-links .social-icon:hover .right {
+    transform: translateX(8px) rotateY(90deg);
+  }
+  .social-links .social-icon:hover .left {
+    transform: translateX(-8px) rotateY(-90deg);
+  }
+  .social-links .social-icon:hover .top {
+    transform: translateY(-8px) rotateX(90deg);
+  }
+  .social-links .social-icon:hover .bottom {
+    transform: translateY(8px) rotateX(-90deg);
+  }
+}
+
+@media (min-width: 1429px) {
+  .social-links .social-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 8px;
+  }
+  .social-links .social-icon:hover .front {
+    transform: translateZ(15px);
+  }
+  .social-links .social-icon:hover .back {
+    transform: translateZ(-15px) rotateY(180deg);
+  }
+  .social-links .social-icon:hover .right {
+    transform: translateX(15px) rotateY(90deg);
+  }
+  .social-links .social-icon:hover .left {
+    transform: translateX(-15px) rotateY(-90deg);
+  }
+  .social-links .social-icon:hover .top {
+    transform: translateY(-15px) rotateX(90deg);
+  }
+  .social-links .social-icon:hover .bottom {
+    transform: translateY(15px) rotateX(-90deg);
+  }
+} */
 
 .copyright {
   display: flex;
