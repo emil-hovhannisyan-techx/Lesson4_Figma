@@ -380,7 +380,7 @@ button {
   }
 }
 
-/* .input-bar button {
+.input-bar button {
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -410,83 +410,6 @@ button {
 .input-bar button img:hover {
   transform: scale(1.1);
   filter: brightness(1.2);
-} */
-
-/* Keyframe animation for pulsing effect */
-@keyframes hvr-icon-pulse {
-  25% {
-    transform: scale(1.1);
-  }
-  75% {
-    transform: scale(0.7);
-  }
-}
-
-/* Button styles with radial effect */
-.input-bar button {
-  display: flex;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  aspect-ratio: 1/1;
-  height: auto;
-  padding: 0;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition-property: color;
-  transition-duration: 0.3s;
-}
-
-.input-bar button::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: none;
-  border-radius: 100%;
-  transform: scale(0);
-  transition-property: transform;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-out;
-}
-
-.input-bar button:hover::before,
-.input-bar button:focus::before,
-.input-bar button:active::before {
-  transform: scale(1.1);
-}
-
-/* Image styles with pulse effect */
-.input-bar button img {
-  width: 3.9vw;
-  transform: translateZ(0); /* Ensures smooth rendering */
-  transition-timing-function: ease-out; /* Smooth transition for non-hover states */
-}
-
-.input-bar button:hover img,
-.input-bar button:focus img,
-.input-bar button:active img {
-  animation-name: hvr-icon-pulse;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-/* Media queries */
-@media (max-width: 767px) {
-  .input-bar button img {
-    width: 29.9px;
-  }
-}
-
-@media (min-width: 1436px) {
-  .input-bar button img {
-    width: 56px;
-  }
 }
 
 /* FEATURED LIST */
@@ -529,6 +452,33 @@ button {
   transform: scale(1.03);
 }
 
+.apartment-visual {
+  display: flex;
+  justify-content: space-between;
+  width: 24.5vw;
+  min-width: 188.3px;
+  max-width: 353px;
+  aspect-ratio: 379/185;
+  height: auto;
+  background-clip: border-box;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 6px 6px 0 0;
+  padding: 1.1vw 1.1vw 1.1vw 0.7vw;
+}
+
+@media (max-width: 773px) {
+  .apartment-visual {
+    padding: 8.5px 8.5px 8.5px 5.3px;
+  }
+}
+
+@media (min-width: 1455px) {
+  .apartment-visual {
+    padding: 16px 16px 16px 10px;
+  }
+}
 /*Keyframe for wobble effect. Unnecessary due to complexity for user's viewpoint and browser, yet funny enough to implement for anyone curious
 remove the comments, comments accordingly the .apartment-item and it's hover and let's see what happens!*/
 
@@ -574,33 +524,6 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   animation-iteration-count: 1;
 } */
 
-.apartment-visual {
-  display: flex;
-  justify-content: space-between;
-  width: 24.5vw;
-  min-width: 188.3px;
-  max-width: 353px;
-  aspect-ratio: 379/185;
-  height: auto;
-  background-clip: border-box;
-  background-origin: border-box;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  border-radius: 6px 6px 0 0;
-  padding: 1.1vw 1.1vw 1.1vw 0.7vw;
-}
-
-@media (max-width: 773px) {
-  .apartment-visual {
-    padding: 8.5px 8.5px 8.5px 5.3px;
-  }
-}
-
-@media (min-width: 1455px) {
-  .apartment-visual {
-    padding: 16px 16px 16px 10px;
-  }
-}
 
 .vis-1 {
   background-image: url("assets/body/featured-list/first-section/apartment1.png");
@@ -1058,9 +981,7 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
 
 .event-item-visual {
   display: flex;
-  width: 22.2vw;
-  min-width: 170.7px;
-  max-width: 320px;
+  width: 100%; /* Changed to 100% to match container size */
   aspect-ratio: 320/219;
   height: auto;
   align-items: start;
@@ -1068,26 +989,26 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   border-radius: 7px 7px 0 0;
   background-image: url("assets/body/events/event1.png");
   background-repeat: no-repeat;
-  background-size: 100% 105%;
-  background-position: bottom;
+  background-size: cover; /* Changed to cover to fit container */
+  background-position: center; /* Adjusted for better image placement */
 }
 
 .event-vis-2 {
   background-image: url("assets/body/events/event2.png");
-  background-position: bottom 0px right 0px;
-  background-size: 108% 105%;
+  background-size: cover; /* Changed to cover to fit container */
+  background-position: center; /* Adjusted for better image placement */
 }
 
 .event-vis-3 {
   background-image: url("assets/body/events/3.png");
-  background-position: bottom 0px right 0px;
-  background-size: 108% 105%;
+  background-size: cover; /* Changed to cover to fit container */
+  background-position: center; /* Adjusted for better image placement */
 }
 
 .event-vis-4 {
   background-image: url("assets/body/events/event4.png");
-  background-position: bottom 0px right 0px;
-  background-size: 108% 105%;
+  background-size: cover; /* Changed to cover to fit container */
+  background-position: center; /* Adjusted for better image placement */
 }
 
 .event-type {
@@ -1158,24 +1079,22 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
 .event-item-info {
   display: flex;
   justify-content: space-between;
-  width: 20vw;
-  min-width: 153.6px;
-  max-width: 288px;
+  width: 90%; /* Adjusted to fit within container with padding */
   aspect-ratio: 288/55;
   height: auto;
-  margin: 1.1vw 1.1vw;
+  margin: 1.1vw auto; /* Centered with auto margins */
   background-color: #fafafa;
 }
 
 @media (max-width: 773px) {
   .event-item-info {
-    margin: 8.5px 8.5px;
+    margin: 8.5px auto;
   }
 }
 
 @media (min-width: 1455px) {
   .event-item-info {
-    margin: 16px 16px;
+    margin: 16px auto;
   }
 }
 
@@ -1254,7 +1173,6 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
 .event-buttons img:hover {
   transform: scale(1.3);
 }
-
 /* .event-buttons {
   display: flex;
   justify-content: space-between;
@@ -1306,6 +1224,8 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
     height: 24px;
   }
 } */
+
+
 .event-people-data {
   display: flex;
   justify-content: space-between;
@@ -1450,10 +1370,12 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   max-width: 546px;
   aspect-ratio: 546/171;
   height: auto;
+  align-items: center; /* Added to center content */
 }
 
 .rev-heading {
   display: flex;
+  justify-content: center;
 }
 
 .rev-heading h2 {
@@ -1480,6 +1402,7 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   max-width: 490px;
   aspect-ratio: 490/44;
   height: auto;
+  text-align: center;
 }
 
 .rev-text p {
@@ -1513,6 +1436,7 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   border-radius: 20px;
   cursor: pointer;
   transition-duration: 230ms;
+  margin: 0 auto;
 }
 
 .rev-button:hover {
@@ -1974,7 +1898,7 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   background-color: #f5f5f5;
 }
 
- .social-links {
+.social-links {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1983,17 +1907,16 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   min-height: 51.7px;
   max-height: 97px;
   width: 100vw;
-} 
-
+}
 
 .social-links img {
   width: 2.1vw;
   margin: 0 0.6vw;
   cursor: pointer;
   transition-duration: 250ms;
-} 
+}
 
- @media (max-width: 762px) {
+@media (max-width: 762px) {
   .social-links img {
     width: 16px;
     margin: 0 4.3px;
@@ -2010,8 +1933,7 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
 .social-links img:hover {
   transform: scale(1.1);
   filter: brightness(1.4);
-} 
-
+}
 /* Keyframe animation for 3D rotation
 @keyframes rotate3d {
   0% {
@@ -2613,29 +2535,33 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   }
 
   .events-items-container {
-    justify-content: center;
-    width: 100%;
+    justify-content: space-between; /* Changed to ensure two items are spaced evenly */
+    width: 90%; /* Reduced width for padding */
     min-width: 0;
-  }
-
-  .event-item:not(:first-child) {
-    display: none;
+    flex-wrap: nowrap; /* Changed to nowrap to force two items side by side */
+    padding: 0 10px; /* Added padding for spacing */
   }
 
   .event-item {
-    width: 90%;
-    max-width: 300px;
-    min-width: 0;
+    width: 48%; /* Changed to 48% to fit two items side by side */
+    max-width: none; /* Removed max-width to allow flexibility */
+    min-width: 0; /* Allow shrinking for worst-case scenarios */
+    margin: 0; /* Removed margin to avoid extra spacing */
+  }
+
+  .event-item:not(:nth-child(-n+2)) { /* Changed to show only first two items */
+    display: none;
   }
 
   .event-item-visual {
-    width: 100%;
+    width: 100%; /* Ensure it fits container */
     max-width: none;
     min-width: 0;
+    background-size: cover; /* Ensure images cover the area */
   }
 
   .event-item-info {
-    width: 100%;
+    width: 90%; /* Adjusted to fit within container */
     max-width: none;
     min-width: 0;
   }
@@ -2646,11 +2572,11 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   }
 
   .left {
-    left: 10px;
+    left: 5px; /* Adjusted for smaller screens */
   }
 
   .right {
-    right: 10px;
+    right: 5px; /* Adjusted for smaller screens */
   }
 
   /* Reverifi Section */
@@ -2661,11 +2587,10 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   }
 
   .rev-info {
-    width: 100%;
+    width: 90%; /* Adjusted for mobile */
     max-width: none;
     min-width: 0;
     padding: 20px;
-    text-align: center;
   }
 
   .rev-text {
@@ -2700,10 +2625,6 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
     width: 100%;
     min-width: 0;
     gap: 20px;
-  }
-
-  .city:not(:first-child) {
-    display: none;
   }
 
   .city {
@@ -2821,19 +2742,18 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   /* Events Section */
   .events-items-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Changed to ensure two items are spaced evenly */
     padding: 0 20px;
+    width: 90%; /* Adjusted for tablet */
+    flex-wrap: nowrap; /* Changed to nowrap to force two items side by side */
   }
 
   .event-item {
-    width: 45%;
+    width: 48%; /* Changed to 48% to fit two items side by side */
+    max-width: none; /* Removed max-width for flexibility */
   }
 
-  .event-item:not(:first-child) {
-    display: flex;
-  }
-
-  .event-item:nth-child(n + 3) {
+  .event-item:not(:nth-child(-n+2)) { /* Changed to show only first two items */
     display: none;
   }
 
@@ -2890,5 +2810,31 @@ remove the comments, comments accordingly the .apartment-item and it's hover and
   .footer-block-3,
   .footer-block-4 {
     width: 23%;
+  }
+}
+
+/* WORST-CASE SCENARIO (VERY SMALL SCREENS) */
+@media (max-width: 480px) {
+  .events-items-container {
+    width: 95%; /* Further reduced for very small screens */
+    padding: 0 5px; /* Adjusted padding */
+  }
+
+  .event-item {
+    width: 48%; /* Maintained two items side by side */
+    min-width: 120px; /* Set a minimum width for readability */
+  }
+
+  .event-name {
+    font-size: 10px; /* Adjusted for readability */
+  }
+
+  .event-data {
+    font-size: 8px; /* Adjusted for readability */
+  }
+
+  .rev-info {
+    width: 95%; /* Adjusted for very small screens */
+    padding: 10px; /* Reduced padding */
   }
 }
